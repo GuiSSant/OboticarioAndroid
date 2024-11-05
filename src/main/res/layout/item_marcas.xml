@@ -5,10 +5,10 @@
     android:id="@+id/imagemMarca"
     android:layout_height="65dp"
     android:layout_width="65dp"
-    android:src="@drawable/bio_oil2"
+    android:src="@drawable/bio_oil"
     android:background="@drawable/circulo_fundo_branco"
     android:clipToOutline="true"
-    android:scaleType="fitCenter"
+    android:scaleType="centerCrop"
     android:layout_margin="8dp"
     >
 

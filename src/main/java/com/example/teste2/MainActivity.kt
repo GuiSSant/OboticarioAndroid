@@ -1,6 +1,7 @@
 package com.example.teste2
 
 import android.animation.ValueAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -43,18 +44,27 @@ class MainActivity : AppCompatActivity() {
         val scrollConteudo = findViewById<ScrollView>(R.id.scrollConteudo)
         val header = findViewById<ConstraintLayout>(R.id.fundoHeader)
         val conteudoHeader = findViewById<ConstraintLayout>(R.id.conteudo_header)
-        val marcas = findViewById<RecyclerView>(R.id.recyclerMarcas)
+        val marcasRecycler = findViewById<RecyclerView>(R.id.recyclerMarcas)
+        val bannerRecycler = findViewById<RecyclerView>(R.id.recyclerBanner)
         var alturaFinal: Int = 0
         var alturaInicial: Int = 0
 
-        marcas.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        marcas.setHasFixedSize(true)
+        marcasRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        marcasRecycler.setHasFixedSize(true)
+        val listaMarcas = listOf<String>("vult", "nina", "siage", "pampers", "australian_gold", "dr_jones", "bio_oil")
+        val adapterMarcas = MarcasAdapter(listaMarcas)
+        marcasRecycler.adapter = adapterMarcas
 
-        val lista = listOf<String>("vult", "nina", "siage", "pampers", "australian_gold", "dr_jones", "bio_oil2")
+        bannerRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        bannerRecycler.setHasFixedSize(true)
+        val listaBanner = listOf<String>("banner1", "banner2", "banner3")
+        val adapterBanner = BannerAdapter(listaBanner)
+        bannerRecycler.adapter = adapterBanner
 
-        val adapterMarcas = MarcasAdapter(lista)
 
-        marcas.adapter = adapterMarcas
+
+
+
 
 
 
@@ -85,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                         scrollConteudo.updatePadding(top = header.measuredHeight)
 
                     }
-                    duration = 250
+                    duration = 150
 
                     start()
                 }}
@@ -93,7 +103,7 @@ class MainActivity : AppCompatActivity() {
                 if (scrollY > oldScrollY) {
                     conteudoHeader.animate()
                         .alpha(0f)
-                        .setDuration(250)
+                        .setDuration(150)
                         .withEndAction {
                             conteudoHeader.visibility = View.GONE
                             conteudoHeader.alpha = 0f
@@ -114,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                             scrollConteudo.updatePadding(top = header.measuredHeight)
 
                         }
-                        duration = 250
+                        duration = 150
                         start()
                     }
             }
@@ -122,7 +132,7 @@ class MainActivity : AppCompatActivity() {
                 conteudoHeader.visibility = View.VISIBLE
                 conteudoHeader.animate()
                     .alpha(1f)
-                    .setDuration(250)
+                    .setDuration(150)
                     .start()
 
 

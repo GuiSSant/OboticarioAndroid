@@ -157,23 +157,50 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-
-                android:id="@+id/recyclerMarcas"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:orientation="horizontal"
-                tools:listitem="@layout/item_marcas">
+                android:orientation="vertical"
+                >
 
-            </androidx.recyclerview.widget.RecyclerView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="As melhores marcas para você"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="25.6dp"
+                    android:letterSpacing="-0.025"/>
 
-            <CalendarView
-                android:id="@+id/calendarView3"
+                <androidx.recyclerview.widget.RecyclerView
+
+                    android:id="@+id/recyclerMarcas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/item_marcas"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center"
+                    >
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerBanner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:layout_editor_absoluteX="37dp"
-                tools:layout_editor_absoluteY="373dp" />
+                android:orientation="horizontal"
+                tools:listitem="@layout/item_banner"
+                android:layout_marginTop="48dp"
+                android:layout_gravity="center">
+
+
+            </androidx.recyclerview.widget.RecyclerView>
 
             <CalendarView
                 android:id="@+id/calendarView4"
